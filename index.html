@@ -57,13 +57,13 @@
   </p>
 
   <h3>Thermal Conductivity Testing (ASTM C1774)</h3>
-  <p>My core project measured the <strong>effective thermal conductivity of K1 hollow glass microsphere insulation</strong> at cryogenic boundary conditions, following <strong>ASTM C1774</strong> methodology on a <strong>NASA Cryostat-100 boil-off calorimeter</strong>. I:</p>
+  <p>My core project measured the <strong>effective thermal conductivity of candidate cryogenic insulation systems</strong> — including K1 hollow glass microsphere (HGM), MLI, glass wool, and PUF — at cryogenic boundary conditions, following <strong>ASTM C1774</strong> methodology on a <strong>NASA Cryostat-100 boil-off calorimeter</strong>. I:</p>
   <ul>
-    <li><strong>Validated the apparatus</strong> against NASA reference data before running production tests</li>
+    <li><strong>Validated the apparatus in a vacuum-only baseline condition</strong> (no specimen installed) by wrapping the Cryostat-100 itself in hand-fabricated MLI to inhibit parasitic heat flux beyond the apparatus's stock configuration — achieving a <strong>40% reduction in effective thermal conductivity versus the NASA reference value in this vacuum-only case</strong>, demonstrating the apparatus was performing beyond NASA's own baseline before any specimen was even tested</li>
     <li><strong>Diagnosed and resolved a vacuum failure</strong> mid-test, recovering chamber pressure to 10⁻⁵ torr through repeated heat/purge bake-off cycling</li>
-    <li><strong>Analyzed 100,000+ data points in Python</strong> (Pandas, NumPy, Matplotlib) — plotting temperature, vacuum level, liquid fill, and mass flow rate against time to extract steady-state effective thermal conductivity</li>
-    <li><strong>Achieved a 40% reduction in effective thermal conductivity</strong> compared to reference insulation data</li>
-    <li><strong>Identified parasitic conduction pathways</strong> and proposed a GFRP/polyurethane foam redesign to reduce them in future test iterations</li>
+    <li><strong>Analyzed 100,000+ data points in Python</strong> (Pandas, NumPy, Matplotlib) — plotting temperature, vacuum level, liquid fill, and mass flow rate against time to extract steady-state effective thermal conductivity for each condition</li>
+    <li><strong>Tested K1 HGM, MLI, glass wool, and PUF specimens</strong> against the NASA reference; the specimen runs did not match reference performance as closely as the vacuum-only baseline had, revealing parasitic conduction pathways in the specimen test configuration</li>
+    <li><strong>Proposed a GFRP/polyurethane foam redesign</strong> of the specimen mounting to reduce that parasitic conduction in future test iterations</li>
   </ul>
 
   <h3>Multi-Layer Insulation (MLI) Fabrication</h3>
@@ -90,22 +90,27 @@
 
 <!-- ===== Data Results ===== -->
 <div id="hstc-results" style="margin-top:20px;">
-  <h3>Effective Thermal Conductivity Results</h3>
-  <img src="./hstc_keff_comparison.png"
-       alt="Effective thermal conductivity comparison table and trend plots across baseline, HGM, MLI, glass wool, and PUF specimens"
+  <h3>Vacuum-Only Baseline — Apparatus Validation</h3>
+  <img src="./hstc_keff_plot.png"
+       alt="Effective thermal conductivity vs time for the vacuum-only baseline condition with MLI-wrapped Cryostat-100"
        style="width:100%; max-width:900px; border:1px solid #1f2937; border-radius:8px;">
   <p style="color:#9ca3af; margin-top:8px;">
-    Steady-state effective thermal conductivity across every specimen tested — baseline,
-    K1 hollow glass microsphere (HGM), MLI, glass wool, and polyurethane foam (PUF) —
-    each extracted from its own boil-off trend against the NASA reference value.
+    Vacuum-only condition, no specimen installed. With the Cryostat-100 itself wrapped in
+    hand-fabricated MLI to suppress additional parasitic heat flux, the apparatus settled
+    to a steady-state effective thermal conductivity <strong>40% below the NASA reference
+    value</strong> — showing the apparatus, as modified, outperforming NASA's own stock
+    baseline before any specimen was tested.
   </p>
 
-  <img src="./hstc_keff_plot.png"
-       alt="Thermal conductivity vs time plot for a single test run"
+  <h3>Specimen Testing vs. Reference</h3>
+  <img src="./hstc_keff_comparison.png"
+       alt="Effective thermal conductivity comparison table and trend plots for K1 HGM, MLI, glass wool, and PUF specimens against the NASA reference"
        style="width:100%; max-width:900px; border:1px solid #1f2937; border-radius:8px; margin-top:16px;">
   <p style="color:#9ca3af; margin-top:8px;">
-    Full time trace for a single run, showing the transient recovery after the vacuum
-    failure and the steady-state region used to extract kₑ.
+    With an actual specimen installed — K1 hollow glass microsphere (HGM), MLI, glass
+    wool, and PUF — results ran higher than the NASA reference rather than matching it,
+    pointing to parasitic conduction introduced by the specimen mounting itself. This gap
+    is what motivated the proposed GFRP/polyurethane foam mount redesign.
   </p>
 </div>
 
